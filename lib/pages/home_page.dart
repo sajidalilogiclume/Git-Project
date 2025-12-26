@@ -16,7 +16,7 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text('Git Practise Project',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 25),)
+            Text('Change  Project Name',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 25),)
           ],
         ),
       )

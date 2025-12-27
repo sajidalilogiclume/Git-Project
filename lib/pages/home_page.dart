@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:git_project/util/app_route.dart';
+import 'package:go_router/go_router.dart';
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -15,7 +17,13 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text('Change  Project Name',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 25),)
+            Text('Change  Home Screen',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 25),),
+            ElevatedButton(onPressed: (){
+              context.go(AppRoute.DetailPage.path);
+            }, child: Text("Move to Next")),
+            ElevatedButton(onPressed: (){
+              context.pop();
+            }, child: Text("Name"))
           ],
         ),
       )

@@ -1,5 +1,4 @@
 import 'package:git_project/data/model/user_model.dart';
-
 class HelperMethod{
   List<UserModel> getUserList(){
     return [

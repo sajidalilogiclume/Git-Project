@@ -17,6 +17,8 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            Image.asset('assets/images/burger.jpg', width: 200, height: 200),
+            SizedBox(height: 20),
             Text('Change  Home Screen',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 25),),
             ElevatedButton(onPressed: (){
               context.go(AppRoute.DetailPage.path);

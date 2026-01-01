@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:git_project/pages/home_page.dart';
 import 'package:git_project/pages/splash_page.dart';
 import 'package:git_project/util/app_route.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

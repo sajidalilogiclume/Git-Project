@@ -22,7 +22,7 @@ class _ProviderPageState extends ConsumerState<ProviderPage> {
           itemBuilder: (context,index){
             return item.isEmpty ? Center(
               child: Text('date donot foound'),
-            ):ListTile(
+            ):item.isEmpty?Center(child: Text('Data donot found'),):ListTile(
               title:Text(item[index].name),
               trailing: Row(
                 mainAxisSize: MainAxisSize.min,

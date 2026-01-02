@@ -12,9 +12,13 @@ class StockPage extends ConsumerWidget {
         child:Consumer(builder: (context,ref,child){
           print('build 2');
           final provider=ref.watch(stockProvider);
-          return provider.when(data: (value){
+          return provider.when(
+              skipLoadingOnRefresh: false,
+              data: (value){
             return Text(value.toStringAsFixed(2).toString(),style: TextStyle(fontWeight: FontWeight.bold,fontSize: 30));
-          }, error: (error,stackTrace)=>Text(error.toString(),style: TextStyle(fontWeight: FontWeight.bold,fontSize: 30),),
+          }, error: (error,stackTrace)=>TextButton(onPressed: (){
+            ref.read(stockProvider);
+          }, child: Text('error :$error')),
               loading: ()=>CircularProgressIndicator());
         }),
       ),

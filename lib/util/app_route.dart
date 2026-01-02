@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:git_project/pages/detail_page.dart';
+import 'package:git_project/pages/future_page.dart';
 import 'package:git_project/pages/home_page.dart';
 import 'package:git_project/pages/provider_page.dart';
 import 'package:git_project/pages/splash_page.dart';
@@ -9,8 +10,9 @@ import 'package:go_router/go_router.dart';
 
 class AppRouter{
  final GoRouter router=GoRouter(
-     initialLocation: AppRoute.StackPage.path,
+     initialLocation: AppRoute.FuturePage.path,
      routes: [
+       GoRoute(path: AppRoute.FuturePage.path,name: AppRoute.FuturePage.path,builder: (context,state)=>FuturePage()),
        GoRoute(path: AppRoute.StackPage.path,name: AppRoute.StackPage.path,builder: (context,state)=>StockPage()),
        GoRoute(path: AppRoute.FavouritePage.path,name: AppRoute.FavouritePage.path,builder: (context,state)=>FavouritePage()),
        GoRoute(path: AppRoute.ProviderPage.path,name: AppRoute.ProviderPage.path,builder: (context,state)=>ProviderPage()),
@@ -22,6 +24,7 @@ class AppRouter{
 }
 
 enum AppRoute {
+  FuturePage,
   StackPage,
   FavouritePage,
   ProviderPage,
@@ -31,7 +34,8 @@ enum AppRoute {
 }
 extension PathName on AppRoute {
   String get path => switch (this) {
-    AppRoute.StackPage=> '/',
+    AppRoute.FuturePage=> '/',
+    AppRoute.StackPage=> 'stack',
     AppRoute.DetailPage => 'detail',
     AppRoute.FavouritePage=>'/detail',
     AppRoute.ProviderPage =>'provider',

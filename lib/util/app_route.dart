@@ -3,13 +3,15 @@ import 'package:git_project/pages/detail_page.dart';
 import 'package:git_project/pages/home_page.dart';
 import 'package:git_project/pages/provider_page.dart';
 import 'package:git_project/pages/splash_page.dart';
+import 'package:git_project/pages/stock_page.dart';
 import 'package:git_project/provider/favourite_page.dart';
 import 'package:go_router/go_router.dart';
 
 class AppRouter{
  final GoRouter router=GoRouter(
-     initialLocation: AppRoute.DetailPage.path,
+     initialLocation: AppRoute.StackPage.path,
      routes: [
+       GoRoute(path: AppRoute.StackPage.path,name: AppRoute.StackPage.path,builder: (context,state)=>StockPage()),
        GoRoute(path: AppRoute.FavouritePage.path,name: AppRoute.FavouritePage.path,builder: (context,state)=>FavouritePage()),
        GoRoute(path: AppRoute.ProviderPage.path,name: AppRoute.ProviderPage.path,builder: (context,state)=>ProviderPage()),
        GoRoute(path: AppRoute.SplashPage.path,name: AppRoute.SplashPage.path,builder: (context,state)=>SplashPage()),
@@ -20,6 +22,7 @@ class AppRouter{
 }
 
 enum AppRoute {
+  StackPage,
   FavouritePage,
   ProviderPage,
   SplashPage,
@@ -28,7 +31,8 @@ enum AppRoute {
 }
 extension PathName on AppRoute {
   String get path => switch (this) {
-    AppRoute.DetailPage => '/',
+    AppRoute.StackPage=> '/',
+    AppRoute.DetailPage => 'detail',
     AppRoute.FavouritePage=>'/detail',
     AppRoute.ProviderPage =>'provider',
     AppRoute.SplashPage => '/splash',

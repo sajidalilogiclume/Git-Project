@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:git_project/pages/home_page.dart';
-import 'package:git_project/pages/splash_page.dart';
+import 'package:git_project/provider/counter_provider.dart';
+import 'package:git_project/provider/example_one_provider.dart';
 import 'package:git_project/util/app_route.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const ProviderScope(child: MyApp()));
+  runApp(const  MyApp());
 }
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -13,12 +13,18 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
+    return MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (_)=>ExampleOneProvider()),
+          ChangeNotifierProvider(create: (_)=>CounterProvider()),
+
+
+    ],child: MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      routerConfig: AppRouter().router,
-      title: 'GoRouter Navigation',
+       routerConfig: AppRouter().router,
+       title: 'GoRouter Navigation',
       theme: ThemeData(primaryColor: Colors.blue),
-    );
+    ),);
   }
 }
 
